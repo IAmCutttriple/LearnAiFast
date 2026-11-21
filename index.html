@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090d17">
+<meta name="description" content="Learn how AI works, find tools worth trying, and turn rough ideas into brilliant prompts.">
+
+<title>LearnAiFast — Make AI make sense</title>
+<style>
+@property --meter{syntax:"<percentage>";inherits:false;initial-value:0%}
+:root{color-scheme:dark;--bg:#090d17;--bg-soft:#0d1220;--panel:#101726;--panel-raised:#131c2d;--panel-hover:#172236;--line:rgba(151,174,207,.13);--line-strong:rgba(151,174,207,.24);--text:#f3f5fb;--muted:#9aa7bc;--subtle:#68768d;--accent:#63e5ef;--accent-2:#a790ff;--accent-3:#c6fa87;--warm:#ffd68d;--danger:#ff7d87;--success:#80edb2;--shadow:0 24px 75px rgba(0,0,0,.32);--header:rgba(9,13,23,.82);--radius:22px;--ease:cubic-bezier(.2,.75,.3,1)}
+:root[data-theme="daylight"]{color-scheme:light;--bg:#f3f6fb;--bg-soft:#f9fbfe;--panel:#fff;--panel-raised:#fff;--panel-hover:#f2f5fa;--line:rgba(39,64,101,.12);--line-strong:rgba(39,64,101,.22);--text:#16243c;--muted:#586882;--subtle:#8190a5;--accent:#2267df;--accent-2:#7d5cde;--accent-3:#25865b;--warm:#b87723;--danger:#c84152;--success:#278555;--shadow:0 20px 58px rgba(28,50,84,.1);--header:rgba(249,251,254,.86)}
+:root[data-theme="emerald"]{--bg:#07110f;--bg-soft:#0b1714;--panel:#0e1d19;--panel-raised:#12251f;--panel-hover:#152b24;--line:rgba(122,192,155,.13);--line-strong:rgba(122,192,155,.24);--text:#edf8f1;--muted:#a1bcac;--subtle:#6e8c7c;--accent:#68f0a9;--accent-2:#79dcda;--accent-3:#c7f489;--warm:#f1d383;--success:#72ecab;--header:rgba(7,17,15,.84)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.6;transition:background .35s,color .35s;overflow-x:hidden}button,a,select,textarea{font:inherit}button{color:inherit}button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}a{color:inherit;text-decoration:none}.ambient{position:fixed;z-index:-1;pointer-events:none;filter:blur(85px);opacity:.14;border-radius:50%}.ambient-one{width:370px;height:340px;background:var(--accent-2);top:10%;left:-290px}.ambient-two{width:300px;height:280px;background:var(--accent);bottom:6%;right:-260px}.topbar{height:78px;position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 max(34px,calc((100vw - 1200px)/2));background:var(--header);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:9px;min-width:190px}.brand-mark{width:33px;height:33px;color:var(--accent)}.brand-mark svg{width:100%;height:100%}.brand-name,.footer-brand{font-size:18px;font-weight:760;letter-spacing:-.75px}.brand-name span,.footer-brand span{color:var(--accent)}.main-nav{display:flex;align-items:center;gap:5px;padding:5px;border:1px solid var(--line);border-radius:99px;background:color-mix(in srgb,var(--panel) 82%,transparent)}.nav-link{border:0;background:transparent;color:var(--muted);font-size:12px;font-weight:650;padding:9px 14px;border-radius:99px;cursor:pointer;transition:all .22s}.nav-link:hover{color:var(--text)}.nav-link.active{color:var(--text);background:var(--panel-hover);box-shadow:inset 0 0 0 1px var(--line)}.header-cta{background:none;border:0;color:var(--text);font-weight:650;font-size:12px;cursor:pointer;min-width:150px;text-align:right}.header-cta span{color:var(--accent);padding-left:5px}.view{display:none;min-height:calc(100vh - 78px);animation:fadeUp .45s var(--ease) both}.view.active{display:block}.page-view{padding-top:83px;padding-bottom:100px}.wrap{width:min(1120px,calc(100% - 64px));margin:0 auto}@keyframes fadeUp{from{opacity:0;transform:translateY(11px)}to{opacity:1;transform:translateY(0)}}.home-hero{min-height:calc(100vh - 135px);display:grid;grid-template-columns:1fr 1.1fr;align-items:center;position:relative;padding-top:25px;padding-bottom:78px}.hero-copy{padding:12px 0 35px 16px;position:relative;z-index:2}.eyebrow{color:var(--muted);font-size:10px;font-weight:760;letter-spacing:1.8px;display:flex;align-items:center;gap:9px}.live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 13px var(--accent);display:inline-block}.hero-copy h1,.section-intro h1,.about-copy h1{font-size:clamp(55px,7vw,91px);letter-spacing:-6px;line-height:.99;margin:28px 0 20px;font-weight:740}.gradient-text{background:linear-gradient(100deg,var(--accent) 4%,var(--accent-2) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-lede{font-size:16px;line-height:1.8;color:var(--muted);max-width:470px;margin:0 0 29px}.hero-actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap}.button{min-height:49px;padding:0 18px;border-radius:12px;border:1px solid transparent;display:inline-flex;justify-content:center;align-items:center;gap:13px;font-size:12px;font-weight:720;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}.button:hover{transform:translateY(-2px)}.button-primary{background:linear-gradient(110deg,var(--accent),color-mix(in srgb,var(--accent) 64%,var(--accent-2)));color:#07121b;box-shadow:0 7px 24px color-mix(in srgb,var(--accent) 20%,transparent)}.button-primary:hover{box-shadow:0 10px 30px color-mix(in srgb,var(--accent) 30%,transparent)}.button-secondary{background:var(--panel);border-color:var(--line-strong);color:var(--text)}.button-secondary:hover{background:var(--panel-hover)}.hero-proof{display:flex;align-items:center;gap:12px;margin-top:42px}.avatar-stack{display:flex;padding-left:0}.avatar-stack span{width:31px;height:31px;border:2px solid var(--bg);border-radius:50%;display:grid;place-items:center;margin-right:-8px;background:var(--panel-raised);font-size:10px;font-weight:700;color:var(--accent)}.avatar-stack span:nth-child(2){color:var(--accent-2)}.avatar-stack span:nth-child(3){color:var(--accent-3);font-size:8px}.hero-proof p{font-size:10px;line-height:1.5;color:var(--muted);margin:0}.hero-proof strong{color:var(--text)}.hero-art{height:490px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.orb{position:absolute;z-index:1;border-radius:50%;display:grid;place-items:center}.orb-main{width:236px;height:236px;color:var(--accent);background:radial-gradient(circle at 40% 36%,color-mix(in srgb,var(--accent) 18%,var(--panel-raised)),var(--bg-soft) 70%);box-shadow:0 0 85px color-mix(in srgb,var(--accent-2) 14%,transparent),inset 0 0 45px color-mix(in srgb,var(--accent) 9%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);animation:float 6s ease-in-out infinite}.orb-main svg{width:112px;height:112px;filter:drop-shadow(0 0 16px color-mix(in srgb,var(--accent) 60%,transparent))}.orbit{position:absolute;border:1px solid var(--line-strong);border-radius:50%;transform:rotate(-26deg)}.orbit-a{width:420px;height:245px}.orbit-b{width:500px;height:330px;transform:rotate(38deg);border-style:dashed;opacity:.65}.orbit-a:before,.orbit-b:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 13px var(--accent-2);left:14%;top:20%}.orbit-b:after{background:var(--accent-3);box-shadow:0 0 13px var(--accent-3);left:auto;top:auto;right:18%;bottom:15%}.float-card{position:absolute;z-index:3;display:flex;align-items:center;gap:11px;padding:12px 15px;border:1px solid var(--line-strong);border-radius:14px;background:color-mix(in srgb,var(--panel) 89%,transparent);backdrop-filter:blur(16px);box-shadow:var(--shadow)}.float-card-top{top:83px;left:2%}.float-card-bottom{bottom:72px;right:0}.mini-icon{width:31px;height:31px;border-radius:10px;display:grid;place-items:center;font-size:16px}.cyan{background:color-mix(in srgb,var(--accent) 12%,var(--panel));color:var(--accent)}.purple{background:color-mix(in srgb,var(--accent-2) 15%,var(--panel));color:var(--accent-2)}.float-card small{display:block;color:var(--subtle);font-size:8px;font-weight:750;letter-spacing:1.1px}.float-card strong{font-size:11px;display:block;margin-top:1px}.check-badge{width:19px;height:19px;border-radius:50%;display:grid;place-items:center;background:var(--success);color:#07140c;font-size:10px;margin-left:8px}.orbit-label{position:absolute;color:var(--subtle);font-size:8px;letter-spacing:1.8px;font-weight:700}.label-one{right:2%;top:29%}.label-two{left:7%;bottom:25%}.hero-foot{position:absolute;bottom:29px;left:16px;right:16px;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:17px;color:var(--subtle);font-size:9px;font-weight:700;letter-spacing:1.3px}.hero-foot span:first-child{display:flex;align-items:center;gap:8px}.hero-foot i{width:6px;height:6px;border-radius:50%;background:var(--accent-3)}.home-strip{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.strip-inner{min-height:73px;display:flex;align-items:center;justify-content:space-between}.strip-inner p{font-size:12px;color:var(--muted);margin:0}.strip-star{color:var(--accent);margin-right:7px}.text-link{border:0;background:transparent;color:var(--text);font-size:11px;font-weight:700;cursor:pointer}.text-link span{color:var(--accent);margin-left:6px}.section-intro{max-width:670px;margin-bottom:43px}.section-intro .eyebrow{margin-bottom:15px}.section-intro h1{font-size:clamp(47px,6vw,72px);letter-spacing:-4.6px;margin:0 0 15px}.section-intro>p{color:var(--muted);font-size:14px;max-width:570px;line-height:1.8;margin:0}.learn-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.learn-card{grid-column:span 3;padding:23px 24px 25px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);position:relative;overflow:hidden;transition:transform .25s,border-color .25s}.learn-card:hover,.tool-card:hover{transform:translateY(-4px);border-color:var(--line-strong)}.card-feature{background:linear-gradient(130deg,color-mix(in srgb,var(--accent) 7%,var(--panel)),var(--panel) 66%)}.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.card-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:12px;font-size:18px;background:var(--panel-raised)}.icon-cyan{color:var(--accent)}.icon-purple{color:var(--accent-2)}.icon-lime{color:var(--accent-3)}.icon-orange{color:var(--warm)}.icon-pink{color:#f38dd2}.index-label{font-size:8px;color:var(--subtle);font-weight:760;letter-spacing:1.3px}.learn-card h2{font-size:20px;letter-spacing:-.6px;margin:0 0 10px}.learn-card p,.learn-card li{color:var(--muted);font-size:12px;line-height:1.85}.learn-card ul{margin:8px 0 0;padding-left:16px}.learn-card li{padding:2px 0}.learn-card li::marker{color:var(--accent)}.pattern-demo{display:flex;align-items:center;gap:8px;margin-top:18px;padding:12px;background:color-mix(in srgb,var(--bg) 70%,transparent);border-radius:12px}.pattern-demo span{font-size:7px;color:var(--subtle);letter-spacing:.9px;font-weight:750}.pattern-demo i{width:19px;height:19px;border-radius:6px;background:color-mix(in srgb,var(--accent) 13%,var(--panel));border:1px solid color-mix(in srgb,var(--accent) 20%,transparent)}.pattern-demo b{font-size:14px;color:var(--accent);margin-left:auto}.pattern-demo strong{font-size:9px}.step-pills{display:flex;align-items:center;gap:10px;margin-top:17px}.step-pills span{padding:7px 11px;border:1px solid var(--line);border-radius:20px;font-size:9px;color:var(--muted)}.step-pills b{font-size:12px;color:var(--accent)}.learn-wide{grid-column:span 6;display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:30px;background:linear-gradient(110deg,var(--panel),color-mix(in srgb,var(--accent-2) 6%,var(--panel)))}.learn-wide .card-top{grid-column:span 2;width:100%;margin-bottom:12px}.learn-wide h2{font-size:19px}.learn-wide p{max-width:610px;margin-bottom:0}.wide-mark{font-size:20px;font-weight:750;letter-spacing:-1px;color:var(--muted);white-space:nowrap}.wide-mark span{color:var(--accent);padding:0 7px}.next-banner{display:flex;align-items:center;justify-content:space-between;padding:22px 25px;margin-top:26px;border-radius:18px;border:1px solid var(--line);background:var(--panel)}.next-banner h2{font-size:16px;letter-spacing:-.35px;margin:6px 0 0}.next-banner .eyebrow{font-size:8px}.pillars-head,.compare-heading{display:flex;align-items:end;justify-content:space-between;margin:44px 0 16px}.pillars-head h2,.compare-heading h2{font-size:22px;letter-spacing:-.7px;margin:5px 0 0}.pillars-head>p{max-width:330px;color:var(--muted);font-size:11px;margin:0 0 3px}.pillar-row{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.pillar{min-height:189px;position:relative;padding:17px;border:1px solid var(--line);background:var(--panel);border-radius:16px;transition:transform .2s,border-color .2s}.pillar:hover{transform:translateY(-3px);border-color:var(--line-strong)}.pillar>b{position:absolute;right:15px;top:14px;color:var(--subtle);font-size:9px;letter-spacing:1px}.pillar-icon{width:33px;height:33px;display:grid;place-items:center;border-radius:10px;background:var(--panel-raised);color:var(--accent);font-size:15px;margin-bottom:17px}.pillar:nth-child(2) .pillar-icon{color:var(--accent-2)}.pillar:nth-child(3) .pillar-icon{color:var(--accent-3)}.pillar:nth-child(4) .pillar-icon{color:var(--warm)}.pillar h3{font-size:12px;margin:0 0 4px;letter-spacing:-.2px}.pillar p{font-size:10px;color:var(--muted);margin:0 0 9px}.pillar small{font-size:9px;color:var(--subtle);line-height:1.4}.compare-heading{margin-top:48px}.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.compare-card{border-radius:18px;padding:19px 21px;border:1px solid var(--line);background:var(--panel)}.weak-card{background:linear-gradient(120deg,color-mix(in srgb,var(--danger) 4%,var(--panel)),var(--panel))}.strong-card{background:linear-gradient(120deg,color-mix(in srgb,var(--success) 5%,var(--panel)),var(--panel))}.compare-label{font-size:8px;letter-spacing:1.1px;color:var(--muted);font-weight:750;display:flex;align-items:center;gap:7px}.status-dot{width:7px;height:7px;border-radius:50%}.status-red{background:var(--danger)}.status-green{background:var(--success)}.quiet-tag{margin-left:auto;color:var(--subtle);border:1px solid var(--line);border-radius:99px;padding:3px 7px;font-size:7px}.compare-card blockquote{margin:15px 0 10px;font-size:14px;font-weight:650;line-height:1.55;letter-spacing:-.2px}.compare-card p{font-size:10px;color:var(--muted);margin:0}.copy-inline{border:1px solid var(--line-strong);border-radius:8px;padding:6px 9px;background:var(--panel-raised);font-size:9px;font-weight:700;cursor:pointer;color:var(--text);margin-left:auto}.copy-inline:hover{border-color:var(--accent);color:var(--accent)}.checker-wrap{margin-top:54px;padding:27px;border:1px solid var(--line-strong);border-radius:24px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 4%,var(--panel)),var(--panel) 46%);box-shadow:var(--shadow)}.checker-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}.checker-heading h2{font-size:25px;letter-spacing:-.9px;margin:9px 0 5px}.checker-heading p{font-size:11px;color:var(--muted);margin:0;max-width:570px}.checker-stamp{width:63px;height:63px;border-radius:50%;border:1px solid var(--line-strong);color:var(--accent);display:grid;place-items:center;font-size:21px;position:relative;flex:none}.checker-stamp span{font-size:6px;line-height:1.3;text-align:center;letter-spacing:1px;font-weight:750;color:var(--muted);position:absolute;bottom:-21px}.checker-grid{display:grid;grid-template-columns:1fr 1fr;gap:19px}.checker-form{padding:20px;border-radius:17px;background:var(--bg-soft);border:1px solid var(--line)}.field-label{display:flex;align-items:center;gap:9px;color:var(--accent);font-size:8px;font-weight:780;letter-spacing:1.25px}.field-label span{color:var(--muted)}.select-wrap{position:relative;margin:9px 0 19px}.select-wrap select{width:100%;appearance:none;background:var(--panel);border:1px solid var(--line-strong);border-radius:10px;color:var(--text);padding:12px 38px 12px 12px;font-size:11px;cursor:pointer}.select-wrap>span{position:absolute;right:12px;top:8px;color:var(--accent);pointer-events:none}.select-wrap select option{background:var(--panel);color:var(--text)}.prompt-label-row{display:flex;align-items:center;justify-content:space-between}.load-example{border:0;background:none;color:var(--accent);font-size:9px;font-weight:700;cursor:pointer;padding:3px}.load-example:hover{text-decoration:underline}.checker-form textarea{width:100%;resize:vertical;min-height:151px;margin-top:10px;border:1px solid var(--line-strong);border-radius:11px;background:var(--panel);color:var(--text);padding:12px;font-size:11px;line-height:1.75}.checker-form textarea::placeholder{color:var(--subtle)}.counter-row{display:flex;justify-content:space-between;margin:7px 0 17px;color:var(--subtle);font-size:8px}.counter-row i{font-style:normal;color:var(--accent);padding:0 3px}.counter-row span:last-child{letter-spacing:.8px;font-weight:700}.score-button{width:100%;min-height:45px}.results-panel{min-height:100%;padding:20px;border:1px solid var(--line);border-radius:17px;background:var(--bg-soft);overflow:hidden}.result-placeholder{min-height:390px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.placeholder-orbit{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;color:var(--accent);font-size:28px;border:1px dashed var(--line-strong);background:radial-gradient(circle,color-mix(in srgb,var(--accent) 9%,var(--panel)),transparent 70%);animation:rotate 20s linear infinite}.result-placeholder h3{font-size:15px;margin:19px 0 5px}.result-placeholder p{max-width:245px;font-size:10px;color:var(--muted);margin:0;line-height:1.7}.placeholder-lines{display:grid;gap:7px;width:70%;margin-top:22px}.placeholder-lines i{height:5px;border-radius:8px;background:var(--panel-raised)}.placeholder-lines i:nth-child(2){width:84%;margin:auto}.placeholder-lines i:nth-child(3){width:61%;margin:auto}@keyframes rotate{to{transform:rotate(360deg)}}.score-head{display:flex;align-items:center;justify-content:space-between}.score-number{display:flex;align-items:baseline;gap:5px;margin-top:6px}.score-number strong{font-size:42px;line-height:1;letter-spacing:-2px}.score-number span{font-size:12px;color:var(--muted)}.score-ring{transition:--meter .8s cubic-bezier(.2,.75,.3,1);width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--meter-color,var(--accent)) var(--meter,0%),var(--panel-raised) 0);position:relative}.score-ring:before{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--bg-soft)}.score-ring>div{z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center}.score-ring strong{font-size:18px;line-height:1.1}.score-ring small{font-size:6px;letter-spacing:.6px;color:var(--subtle)}.score-summary{font-size:10px;color:var(--muted);padding:9px 10px;margin:12px 0;border-left:2px solid var(--meter-color,var(--accent));background:var(--panel);border-radius:0 8px 8px 0}.result-section{margin-top:13px}.result-section h3{font-size:10px;margin:0 0 7px;display:flex;align-items:center;gap:7px}.result-check,.result-plus{width:17px;height:17px;border-radius:5px;display:grid;place-items:center;color:var(--success);background:color-mix(in srgb,var(--success) 12%,var(--panel));font-size:10px}.result-plus{color:var(--warm);background:color-mix(in srgb,var(--warm) 11%,var(--panel))}.result-list{list-style:none;margin:0;padding:0;display:grid;gap:4px}.result-list li{display:flex;align-items:flex-start;gap:7px;font-size:9px;line-height:1.5;color:var(--muted)}.result-list li::before{content:"✓";color:var(--success);font-size:9px;font-weight:bold}.improve-section .result-list li::before{content:"＋";color:var(--warm)}.enhanced-box{margin-top:14px;border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));background:color-mix(in srgb,var(--accent) 4%,var(--panel));border-radius:11px;padding:11px}.enhanced-top{display:flex;justify-content:space-between;align-items:center}.enhanced-top>span{font-size:7px;letter-spacing:1.1px;font-weight:780;color:var(--accent)}.enhanced-top .copy-inline{font-size:8px;padding:5px 7px}.enhanced-box p{font-size:9px;line-height:1.65;color:var(--muted);margin:9px 0 0;white-space:pre-wrap}.checker-note{display:flex;align-items:center;gap:8px;color:var(--subtle);font-size:9px;margin-top:17px}.checker-note span{color:var(--warm)}.tool-controls{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:32px 0 18px;padding-bottom:14px;border-bottom:1px solid var(--line)}.filter-pills{display:flex;gap:6px;flex-wrap:wrap}.filter-pill{display:flex;gap:7px;align-items:center;background:transparent;border:1px solid var(--line);border-radius:99px;padding:8px 12px;font-size:9px;color:var(--muted);cursor:pointer;transition:all .2s}.filter-pill:hover{color:var(--text);border-color:var(--line-strong)}.filter-pill.active{background:var(--panel-raised);border-color:var(--line-strong);color:var(--text)}.filter-pill span{font-size:7px;color:var(--accent)}.tool-count{white-space:nowrap;color:var(--subtle);font-size:8px;letter-spacing:1px;font-weight:720}.tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tool-card{display:flex;flex-direction:column;min-height:218px;padding:17px;border:1px solid var(--line);border-radius:17px;background:var(--panel);transition:transform .22s,border-color .22s}.tool-card[hidden]{display:none}.tool-top{display:flex;align-items:center;justify-content:space-between;gap:7px}.tool-glyph{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:var(--panel-raised);font-size:16px}.glyph-chat{color:var(--success)}.glyph-gemini{color:var(--accent)}.glyph-claude{color:var(--warm)}.glyph-search{color:var(--accent-2)}.glyph-visual{color:#ee8ad1}.glyph-notes{color:var(--accent-3)}.glyph-code{color:#75baf7}.glyph-audio{color:#dfa3ff}.category-tag{font-size:6px;letter-spacing:.65px;color:var(--subtle);font-weight:760;text-align:right}.tool-card h2{font-size:14px;letter-spacing:-.35px;margin:15px 0 6px}.tool-card p{font-size:10px;line-height:1.7;color:var(--muted);margin:0 0 15px}.tool-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:11px;border-top:1px solid var(--line)}.free-tag{font-size:8px;color:var(--muted);display:flex;align-items:center;gap:6px}.free-tag i{width:5px;height:5px;border-radius:50%;background:var(--success)}.tool-index{font-size:8px;color:var(--subtle)}.directory-note{color:var(--subtle);font-size:9px;margin:16px 0 0}.about-layout{display:grid;grid-template-columns:1fr .92fr;gap:90px;align-items:center;padding:40px 0}.about-copy h1{font-size:clamp(48px,6vw,72px);letter-spacing:-4.7px;margin:20px 0}.about-copy>p{font-size:13px;line-height:1.85;color:var(--muted);max-width:430px}.about-copy .button{margin-top:15px}.creator-card{position:relative;overflow:hidden;background:linear-gradient(142deg,color-mix(in srgb,var(--accent-2) 8%,var(--panel)),var(--panel) 60%);border:1px solid var(--line-strong);border-radius:26px;padding:28px;box-shadow:var(--shadow)}.creator-orbit{height:158px;position:relative;display:grid;place-items:center;margin:-10px 0 5px;overflow:hidden}.creator-orbit:before,.creator-orbit:after{content:"";position:absolute;width:170px;height:90px;border:1px solid var(--line-strong);border-radius:50%;transform:rotate(-24deg)}.creator-orbit:after{width:205px;height:124px;transform:rotate(40deg);border-style:dashed}.creator-orbit>i{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);top:26px;left:calc(50% + 65px)}.creator-orbit>i:nth-of-type(2){background:var(--accent-2);box-shadow:0 0 12px var(--accent-2);left:calc(50% - 91px);top:101px}.creator-orbit>i:nth-of-type(3){background:var(--accent-3);box-shadow:0 0 12px var(--accent-3);left:calc(50% + 79px);top:114px}.creator-planet{position:relative;z-index:1;width:91px;height:91px;border-radius:50%;display:grid;place-items:center;font-size:40px;font-weight:760;letter-spacing:-4px;color:var(--text);background:radial-gradient(circle at 38% 30%,color-mix(in srgb,var(--accent-2) 27%,var(--panel)),var(--panel) 74%);border:1px solid color-mix(in srgb,var(--accent-2) 40%,var(--line));box-shadow:0 0 38px color-mix(in srgb,var(--accent-2) 12%,transparent)}.creator-planet span{position:absolute;right:-9px;top:3px;color:var(--accent);font-size:18px;letter-spacing:0}.creator-label{color:var(--subtle);font-size:8px;font-weight:760;letter-spacing:1.4px}.creator-card h2{font-size:28px;letter-spacing:-1.1px;line-height:1.25;margin:11px 0}.creator-card>p{font-size:11px;color:var(--muted);line-height:1.8;max-width:390px}.creator-signoff{border-top:1px solid var(--line);padding-top:15px;margin-top:18px;font-size:8px;color:var(--subtle);font-weight:750;letter-spacing:1.2px}.creator-signoff span{color:var(--accent);margin-left:6px}.about-values{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);padding-top:24px;gap:20px}.about-values>div{display:grid;grid-template-columns:30px 1fr;align-items:baseline}.about-values span{grid-row:span 2;color:var(--accent);font-size:9px}.about-values strong{font-size:11px}.about-values p{font-size:9px;color:var(--muted);margin:3px 0 0}.site-footer{display:flex;align-items:center;justify-content:space-between;padding:22px max(34px,calc((100vw - 1200px)/2));border-top:1px solid var(--line);color:var(--subtle);font-size:9px}.footer-brand{font-size:14px;color:var(--text)}.creator-credit{position:fixed;right:93px;bottom:24px;z-index:15;padding:8px 12px;border-radius:99px;border:1px solid var(--line);background:var(--header);backdrop-filter:blur(14px);font-size:9px;color:var(--muted)}.creator-credit strong{color:var(--text);font-weight:700}.settings-area{position:fixed;right:27px;bottom:20px;z-index:30}.settings-toggle{width:47px;height:47px;border:1px solid var(--line-strong);border-radius:15px;background:var(--panel);box-shadow:var(--shadow);display:grid;place-items:center;cursor:pointer;transition:transform .25s,border-color .25s}.settings-toggle:hover{transform:rotate(35deg);border-color:var(--accent)}.settings-toggle svg{width:21px;height:21px}.settings-card{position:absolute;right:0;bottom:58px;width:252px;padding:13px;border:1px solid var(--line-strong);border-radius:16px;background:var(--panel);box-shadow:var(--shadow);animation:fadeUp .2s ease both}.settings-card[hidden]{display:none}.settings-card-head{display:flex;justify-content:space-between;align-items:center;padding:3px 3px 10px}.settings-card-head>div{display:flex;flex-direction:column;gap:2px}.settings-card-head .eyebrow{font-size:7px}.settings-card-head strong{font-size:12px}.settings-close{border:0;background:var(--panel-raised);border-radius:8px;width:25px;height:25px;font-size:17px;cursor:pointer;color:var(--muted)}.theme-choice{width:100%;display:flex;align-items:center;gap:9px;padding:9px 8px;border:1px solid transparent;border-radius:10px;background:transparent;text-align:left;font-size:10px;color:var(--muted);cursor:pointer}.theme-choice:hover,.theme-choice.selected{background:var(--panel-raised);border-color:var(--line)}.theme-choice>b{margin-left:auto;opacity:0;color:var(--accent);font-size:11px}.theme-choice.selected>b{opacity:1}.theme-dots{display:flex;gap:3px}.theme-dots i{width:9px;height:9px;border-radius:50%;background:#090d17;border:1px solid rgba(255,255,255,.2)}.theme-midnight i:nth-child(2){background:#63e5ef}.theme-midnight i:nth-child(3){background:#a790ff}.theme-daylight i:nth-child(1){background:#f2f5fa}.theme-daylight i:nth-child(2){background:#2267df}.theme-daylight i:nth-child(3){background:#7d5cde}.theme-emerald i:nth-child(1){background:#07110f}.theme-emerald i:nth-child(2){background:#68f0a9}.theme-emerald i:nth-child(3){background:#79dcda}.toast{position:fixed;left:50%;bottom:27px;z-index:50;transform:translate(-50%,15px);opacity:0;pointer-events:none;border:1px solid var(--line-strong);background:var(--panel);color:var(--text);padding:10px 15px;border-radius:10px;font-size:10px;box-shadow:var(--shadow);transition:opacity .2s,transform .2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@media(min-width:1400px){.home-hero{min-height:calc(100vh - 150px)}}
+@media(max-width:960px){.topbar{padding:0 24px}.brand{min-width:auto}.brand-name{font-size:16px}.nav-link{padding:8px 10px;font-size:10px}.header-cta{min-width:auto;font-size:10px}.wrap{width:calc(100% - 48px)}.hero-copy{padding-left:0}.hero-art{height:415px}.orb-main{width:205px;height:205px}.orbit-a{width:350px;height:220px}.orbit-b{width:400px;height:275px}.float-card-top{left:0}.float-card-bottom{right:0}.pillar{padding:14px;min-height:180px}.pillar small{font-size:8px}.tool-grid{grid-template-columns:repeat(2,1fr)}.about-layout{gap:45px}}
+@media(max-width:700px){.topbar{height:auto;min-height:66px;flex-wrap:wrap;padding:9px 12px 10px;gap:8px 10px}.brand-mark{width:29px;height:29px}.brand-name{font-size:15px}.brand{gap:6px}.main-nav{position:static;order:3;left:auto;right:auto;bottom:auto;z-index:auto;flex:0 0 100%;width:100%;justify-content:space-between;padding:5px;background:color-mix(in srgb,var(--panel) 95%,transparent);box-shadow:none;backdrop-filter:none}.nav-link{flex:1;text-align:center;padding:10px 4px;font-size:9px}.header-cta{font-size:9px;padding:0;min-width:112px}.wrap{width:calc(100% - 34px)}.home-hero{min-height:calc(100vh - 100px);grid-template-columns:1fr;padding-top:54px;padding-bottom:70px}.hero-copy{padding:0}.hero-copy h1{font-size:65px;letter-spacing:-4.7px;margin-top:22px}.hero-lede{font-size:14px;max-width:410px}.hero-art{height:325px;grid-row:2;margin-top:7px}.orb-main{width:164px;height:164px}.orb-main svg{width:82px;height:82px}.orbit-a{width:295px;height:165px}.orbit-b{width:345px;height:220px}.float-card-top{top:40px;left:2%}.float-card-bottom{bottom:80px;right:1%}.float-card{padding:9px 11px}.float-card strong{font-size:9px}.float-card small{font-size:7px}.hero-foot{left:0;right:0;bottom:20px;font-size:7px;letter-spacing:.8px}.home-strip{margin-bottom:52px}.strip-inner{min-height:66px}.strip-inner p{font-size:9px}.text-link{font-size:9px}.page-view{padding-top:50px;padding-bottom:98px}.section-intro{margin-bottom:31px}.section-intro h1{font-size:51px;letter-spacing:-3.5px}.section-intro>p{font-size:12px}.learn-grid{gap:9px}.learn-card{padding:16px;grid-column:span 6;border-radius:17px}.learn-card h2{font-size:18px}.learn-card p,.learn-card li{font-size:11px}.learn-wide{grid-template-columns:1fr}.learn-wide .card-top{grid-column:1}.wide-mark{font-size:15px;margin-top:12px}.pattern-demo{gap:6px}.pattern-demo strong{font-size:8px}.next-banner{gap:12px;padding:17px}.next-banner h2{font-size:13px}.next-banner .button{font-size:9px;min-height:41px;padding:0 11px}.pillars-head,.compare-heading{margin-top:33px}.pillars-head{display:block}.pillars-head>p{margin-top:8px}.pillars-head h2,.compare-heading h2{font-size:19px}.pillar-row{grid-template-columns:repeat(2,1fr);gap:8px}.pillar{min-height:158px}.pillar:last-child{grid-column:span 2;min-height:130px}.pillar h3{font-size:12px}.pillar p{font-size:9px}.pillar small{font-size:8px}.compare-grid{grid-template-columns:1fr;gap:8px}.compare-card{padding:16px}.compare-card blockquote{font-size:13px}.checker-wrap{margin-top:36px;padding:17px 13px;border-radius:19px}.checker-heading h2{font-size:21px}.checker-heading p{font-size:10px;max-width:280px}.checker-stamp{width:46px;height:46px;font-size:17px}.checker-grid{grid-template-columns:1fr;gap:11px}.checker-form,.results-panel{padding:14px}.result-placeholder{min-height:290px}.score-number strong{font-size:36px}.tool-controls{display:block;margin-top:25px}.filter-pills{gap:5px}.filter-pill{padding:7px 9px;font-size:8px}.tool-count{display:block;margin-top:12px}.tool-grid{gap:8px}.tool-card{min-height:215px;padding:13px}.tool-card h2{font-size:12px}.tool-card p{font-size:9px}.category-tag{font-size:5px}.free-tag{font-size:7px}.about-layout{grid-template-columns:1fr;gap:31px;padding:20px 0}.about-copy h1{font-size:51px;letter-spacing:-3.5px}.about-copy>p{font-size:12px}.creator-card{padding:21px}.creator-card h2{font-size:25px}.creator-orbit{height:139px}.about-values{gap:7px}.about-values>div{grid-template-columns:22px 1fr}.about-values strong{font-size:9px}.about-values p{font-size:8px}.site-footer{padding:20px 16px 82px;font-size:7px}.footer-brand{font-size:12px}.creator-credit{right:67px;bottom:20px;font-size:8px;padding:7px 10px}.settings-area{right:14px;bottom:13px}.settings-toggle{width:43px;height:43px;border-radius:13px}.settings-card{bottom:53px}.toast{bottom:80px}}
+@media(max-width:390px){.hero-copy h1{font-size:57px}.header-cta{min-width:96px;font-size:8px}.brand-name{font-size:14px}.nav-link{font-size:8px}.tool-top{align-items:flex-start}.category-tag{max-width:85px;line-height:1.35}.tool-card{padding:11px}.tool-card h2{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+</style>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" data-view-link="home" aria-label="LearnAiFast home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M20 3.5 23.9 15l11.6 5-11.6 4.1L20 36.5l-4.1-12.4L4 20l11.9-5L20 3.5Z" fill="currentColor"/><path d="m32.2 4.2 1.3 4 4 1.4-4 1.3-1.3 4-1.4-4-4-1.3 4-1.4 1.4-4Z" fill="currentColor"/><circle cx="7" cy="8" r="1.5" fill="currentColor"/></svg></span>
+      <span class="brand-name">Learn<span>Ai</span>Fast</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation" role="tablist">
+      <button class="nav-link active" role="tab" aria-selected="true" data-view="home">Home</button>
+      <button class="nav-link" role="tab" aria-selected="false" data-view="learn">What is AI</button>
+      <button class="nav-link" role="tab" aria-selected="false" data-view="prompting">Prompting</button>
+      <button class="nav-link" role="tab" aria-selected="false" data-view="tools">AI tools</button>
+      <button class="nav-link" role="tab" aria-selected="false" data-view="about">About</button>
+    </nav>
+    <button class="header-cta" data-go="prompting">Check a prompt <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main>
+    <section class="view active" id="view-home" role="tabpanel" aria-label="Front page">
+      <div class="home-hero wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> YOUR FRIENDLY AI FIELD GUIDE</div>
+          <h1>Make AI<br>make <span class="gradient-text">sense.</span></h1>
+          <p class="hero-lede">We will teach you how to use AI, pick the right tools, and master the art of prompting.</p>
+          <div class="hero-actions"><button class="button button-primary" data-go="learn">Start learning <span>↗</span></button><button class="button button-secondary" data-go="prompting"><span class="sparkle-mini">✳</span> Try prompt checker</button></div>
+          <div class="hero-proof"><div class="avatar-stack" aria-hidden="true"><span>✦</span><span>AI</span><span>01</span></div><p>Clear ideas. Better prompts.<br><strong>More confident you.</strong></p></div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of an idea becoming a useful AI prompt">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="orb orb-main"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 10 60 39l30 11-30 10-10 30-10-30L10 50l30-11 10-29Z" stroke="currentColor" stroke-width="2"/><circle cx="76" cy="25" r="4" fill="currentColor"/><circle cx="24" cy="74" r="3" fill="currentColor"/></svg></div>
+          <div class="float-card float-card-top"><span class="mini-icon cyan">✦</span><span><small>START WITH AN IDEA</small><strong>“Help me learn…”</strong></span></div>
+          <div class="float-card float-card-bottom"><span class="mini-icon purple">↗</span><span><small>TURN IT INTO</small><strong>A brilliant prompt</strong></span><b class="check-badge">✓</b></div>
+          <div class="orbit-label label-one">CURIOUS BY DESIGN</div><div class="orbit-label label-two">AI, UNCOMPLICATED</div>
+        </div>
+        <div class="hero-foot"><span><i></i> BUILT FOR BEGINNERS</span><span>LESS GUESSWORK, MORE “GOT IT”</span></div>
+      </div>
+      <div class="home-strip"><div class="wrap strip-inner"><p><span class="strip-star">✳</span> A little less hype. A lot more helpful.</p><button class="text-link" data-go="learn">See what you’ll learn <span>→</span></button></div></div>
+    </section>
+
+    <section class="view wrap page-view" id="view-learn" role="tabpanel" aria-label="What is AI" hidden>
+      <div class="section-intro"><div class="eyebrow">THE BASICS, WITHOUT THE BUZZWORDS</div><h1>So… <span class="gradient-text">what is AI?</span></h1><p>Think of AI as a pattern-finding helper. It learns from examples, then uses what it learned to help with a new task.</p></div>
+      <div class="learn-grid">
+        <article class="learn-card card-feature"><div class="card-top"><span class="card-icon icon-cyan">◉</span><span class="index-label">01 / THE IDEA</span></div><h2>A clever pattern finder.</h2><p>Artificial intelligence is technology that spots patterns in information and uses them to answer questions, make predictions, or create something new. It’s not magic—and it can still get things wrong.</p><div class="pattern-demo"><span>EXAMPLES</span><i></i><i></i><i></i><b>→</b><strong>A useful pattern</strong></div></article>
+        <article class="learn-card"><div class="card-top"><span class="card-icon icon-purple">↗</span><span class="index-label">02 / WHY IT HELPS</span></div><h2>More time for the good stuff.</h2><ul><li>Turns repetitive work into a quick first draft.</li><li>Gets your creativity unstuck with fresh angles.</li><li>Offers patient, on-demand explanations—like a 24/7 study buddy.</li></ul></article>
+        <article class="learn-card"><div class="card-top"><span class="card-icon icon-lime">⌁</span><span class="index-label">03 / EVERYDAY AI</span></div><h2>Already part of your day.</h2><ul><li>Summarize a long set of class notes.</li><li>Build a realistic study schedule.</li><li>Draft an email or practice a new language.</li><li>Brainstorm project ideas when you’re stuck.</li></ul></article>
+        <article class="learn-card"><div class="card-top"><span class="card-icon icon-orange">⟡</span><span class="index-label">04 / MAKE IT EASIER</span></div><h2>Big task? Smaller steps.</h2><p>Let AI take the first pass at routine work, or ask it to break a tricky topic into bite-sized explanations. You stay in charge; it helps you find your next step.</p><div class="step-pills"><span>Complex task</span><b>→</b><span>Small steps</span></div></article>
+        <article class="learn-card learn-wide"><div class="card-top"><span class="card-icon icon-pink">✳</span><span class="index-label">05 / WHY LEARN IT NOW</span></div><div><h2>AI literacy is becoming a life skill.</h2><p>Knowing how to ask, check, and use AI thoughtfully can help you at school and at work. The advantage isn’t using AI for everything—it’s knowing when it helps, where it falls short, and how to make the result your own.</p></div><div class="wide-mark" aria-hidden="true">AI<span>≠</span> autopilot</div></article>
+      </div>
+      <div class="next-banner"><div><span class="eyebrow">UP NEXT</span><h2>Better answers start with better asks.</h2></div><button class="button button-primary" data-go="prompting">Learn to prompt <span>↗</span></button></div>
+    </section>
+
+    <section class="view wrap page-view" id="view-prompting" role="tabpanel" aria-label="Prompting masterclass" hidden>
+      <div class="section-intro"><div class="eyebrow">THE PROMPTING PLAYBOOK</div><h1>Say it better.<br><span class="gradient-text">Get there faster.</span></h1><p>A prompt is simply the instruction you give an AI. A little more detail can turn a generic answer into something genuinely useful.</p></div>
+      <div class="pillars-head"><div><span class="eyebrow">FIVE BUILDING BLOCKS</span><h2>A great prompt has a plan.</h2></div><p>You don’t need all five every time. Add the pieces that make your goal clear.</p></div>
+      <div class="pillar-row">
+        <article class="pillar"><b>01</b><span class="pillar-icon">♙</span><h3>Role / Persona</h3><p>Who should the AI be?</p><small>“Act as a patient tutor…”</small></article>
+        <article class="pillar"><b>02</b><span class="pillar-icon">◎</span><h3>Clear task</h3><p>What should it do?</p><small>“Explain photosynthesis…”</small></article>
+        <article class="pillar"><b>03</b><span class="pillar-icon">▤</span><h3>Context</h3><p>What should it know?</p><small>“I’m in year 9 biology…”</small></article>
+        <article class="pillar"><b>04</b><span class="pillar-icon">⊞</span><h3>Constraints</h3><p>What are the guardrails?</p><small>“Keep it under 200 words…”</small></article>
+        <article class="pillar"><b>05</b><span class="pillar-icon">▤</span><h3>Output format</h3><p>How should it look?</p><small>“Use 5 bullet points…”</small></article>
+      </div>
+      <div class="compare-heading"><div><span class="eyebrow">A QUICK BEFORE & AFTER</span><h2>Same idea. Better direction.</h2></div></div>
+      <div class="compare-grid">
+        <article class="compare-card weak-card"><div class="compare-label"><span class="status-dot status-red"></span> THE VAGUE ASK <span class="quiet-tag">WEAK</span></div><blockquote>“Write about space.”</blockquote><p>Hard to know what the writer needs, who it’s for, or where to begin.</p></article>
+        <article class="compare-card strong-card"><div class="compare-label"><span class="status-dot status-green"></span> THE THOUGHTFUL ASK <span class="quiet-tag">STRONGER</span><button class="copy-inline" data-copy="Act as an encouraging science teacher. Write a 250-word introduction to black holes for a curious 13-year-old who knows the basics of gravity. Use one everyday analogy and finish with three surprising facts. Format it in short paragraphs with a clear heading.">Copy ↗</button></div><blockquote>“Act as an encouraging science teacher. Write a 250-word introduction to black holes for a curious 13-year-old who knows the basics of gravity. Use one everyday analogy and finish with three surprising facts. Format it in short paragraphs with a clear heading.”</blockquote><p>It gives the AI a role, audience, scope, detail, and a clear shape for the answer.</p></article>
+      </div>
+      <div class="checker-wrap" id="checker">
+        <div class="checker-heading"><div><div class="eyebrow"><span class="live-dot"></span> YOUR PROMPT WORKSHOP</div><h2>Let’s level up your prompt.</h2><p>Pick a category, write what you have, and get practical feedback—not just a word count.</p></div><div class="checker-stamp">✳<span>MAKE IT<br>SPECIFIC</span></div></div>
+        <div class="checker-grid">
+          <div class="checker-form">
+            <label class="field-label" for="category">01 <span>WHAT ARE YOU MAKING?</span></label>
+            <div class="select-wrap"><select id="category"><option>Make an image</option><option>Write code</option><option>Doubt / Question</option><option>Make a video</option><option>Write an essay or email</option><option>Others</option></select><span>⌄</span></div>
+            <div class="prompt-label-row"><label class="field-label" for="prompt-input">02 <span>YOUR PROMPT</span></label><button id="load-example" class="load-example">Load example <span>↗</span></button></div>
+            <textarea id="prompt-input" placeholder="Start with your idea… What do you want the AI to help you make or do?" rows="7"></textarea>
+            <div class="counter-row"><span id="live-count">0 words <i>·</i> 0 characters</span><span>YOUR IDEA, YOUR RULES</span></div>
+            <button id="check-prompt" class="button button-primary score-button">Check &amp; score prompt <span>↗</span></button>
+          </div>
+          <div class="results-panel" id="results-panel" aria-live="polite" aria-atomic="false">
+            <div class="result-placeholder" id="result-placeholder"><div class="placeholder-orbit">✳</div><h3>Your prompt has potential.</h3><p>Your score, strengths, and next-step suggestions will show up here.</p><div class="placeholder-lines"><i></i><i></i><i></i></div></div>
+            <div id="result-content" hidden>
+              <div class="score-head"><div><span class="field-label">YOUR PROMPT SCORE</span><div class="score-number"><strong id="score-number">0.0</strong><span>/ 10</span></div></div><div class="score-ring" id="score-ring"><div><strong id="ring-score">0</strong><small>OUT OF 10</small></div></div></div>
+              <p id="score-summary" class="score-summary"></p>
+              <div class="result-section"><h3><span class="result-check">✓</span> What you did well</h3><ul id="strength-list" class="result-list"></ul></div>
+              <div class="result-section improve-section"><h3><span class="result-plus">＋</span> How to improve</h3><ul id="improve-list" class="result-list"></ul></div>
+              <div class="enhanced-box"><div class="enhanced-top"><span>✳ AUTO-ENHANCED</span><button id="copy-enhanced" class="copy-inline">Copy prompt ↗</button></div><p id="enhanced-prompt"></p></div>
+            </div>
+          </div>
+        </div>
+        <div class="checker-note"><span>✳</span> AI can be confidently wrong. Use its answers as a starting point, and check the important stuff.</div>
+      </div>
+    </section>
+
+    <section class="view wrap page-view" id="view-tools" role="tabpanel" aria-label="AI tools directory" hidden>
+      <div class="section-intro"><div class="eyebrow">A SHORTLIST, NOT ANOTHER INFINITE LIST</div><h1>Meet your new<br><span class="gradient-text">AI sidekicks.</span></h1><p>Eight useful places to start. Choose the kind of help you need and find your next tool.</p></div>
+      <div class="tool-controls"><div class="filter-pills" role="group" aria-label="Filter AI tools"><button class="filter-pill active" data-filter="all" aria-pressed="true">All tools <span>08</span></button><button class="filter-pill" data-filter="writing" aria-pressed="false">Writing &amp; Research</button><button class="filter-pill" data-filter="visuals" aria-pressed="false">Visuals &amp; Video</button><button class="filter-pill" data-filter="productivity" aria-pressed="false">Coding &amp; Productivity</button></div><span class="tool-count" id="tool-count">08 TOOLS TO EXPLORE</span></div>
+      <div class="tool-grid" id="tool-grid">
+        <article class="tool-card" data-category="writing"><div class="tool-top"><span class="tool-glyph glyph-chat">✳</span><span class="category-tag">WRITING &amp; RESEARCH</span></div><h2>ChatGPT</h2><p>A flexible everyday assistant for brainstorming, drafting, coding, and learning new ideas step by step.</p><div class="tool-bottom"><span class="free-tag"><i></i> Free tier available</span><span class="tool-index">01</span></div></article>
+        <article class="tool-card" data-category="productivity"><div class="tool-top"><span class="tool-glyph glyph-gemini">✦</span><span class="category-tag">CODING &amp; PRODUCTIVITY</span></div><h2>Google Gemini</h2><p>Multimodal help for research, image questions, and everyday work across Google’s ecosystem.</p><div class="tool-bottom"><span class="free-tag"><i></i> Free tier available</span><span class="tool-index">02</span></div></article>
+        <article class="tool-card" data-category="writing"><div class="tool-top"><span class="tool-glyph glyph-claude">✳</span><span class="category-tag">WRITING &amp; RESEARCH</span></div><h2>Claude</h2><p>Natural-sounding writing and careful analysis for long documents, detailed explanations, and code.</p><div class="tool-bottom"><span class="free-tag"><i></i> Free tier available</span><span class="tool-index">03</span></div></article>
+        <article class="tool-card" data-category="writing"><div class="tool-top"><span class="tool-glyph glyph-search">⌕</span><span class="category-tag">WRITING &amp; RESEARCH</span></div><h2>Perplexity AI</h2><p>Searches the live web and answers with linked sources—handy for fact-checking and current topics.</p><div class="tool-bottom"><span class="free-tag"><i></i> Free tier available</span><span class="tool-index">04</span></div></article>
+        <article class="tool-card" data-category="visuals"><div class="tool-top"><span class="tool-glyph glyph-visual">◈</span><span class="category-tag">VISUALS &amp; VIDEO</span></div><h2>Midjourney / Canva AI</h2><p>Turn text ideas into expressive images, posters, and social graphics. Canva makes it easy to start designing.</p><div class="tool-bottom"><span class="free-tag"><i></i> Free tier available with Canva</span><span class="tool-index">05</span></div></article>
+        <article class="tool-card" data-category="productivity"><div class="tool-top"><span class="tool-glyph glyph-notes">▤</span><span class="category-tag">CODING &amp; PRODUCTIVITY</span></div><h2>NotebookLM</h2><p>Turn your own notes and PDFs into a source-grounded study guide, Q&amp;A, or podcast-style recap.</p><div class="tool-bottom"><span class="free-tag"><i></i> Free tier available</span><span class="tool-index">06</span></div></article>
+        <article class="tool-card" data-category="productivity"><div class="tool-top"><span class="tool-glyph glyph-code">⌘</span><span class="category-tag">CODING &amp; PRODUCTIVITY</span></div><h2>Cursor</h2><p>An AI-powered code editor that can write, debug, and explain code across a whole project.</p><div class="tool-bottom"><span class="free-tag"><i></i> Free tier available</span><span class="tool-index">07</span></div></article>
+        <article class="tool-card" data-category="visuals"><div class="tool-top"><span class="tool-glyph glyph-audio">♫</span><span class="category-tag">VISUALS &amp; VIDEO</span></div><h2>ElevenLabs</h2><p>Make natural-sounding speech from text for voiceovers, presentations, and accessible audio.</p><div class="tool-bottom"><span class="free-tag"><i></i> Free tier available</span><span class="tool-index">08</span></div></article>
+      </div>
+      <p class="directory-note">Free plans and features can change—check each tool’s current offering before you dive in.</p>
+    </section>
+
+    <section class="view wrap page-view" id="view-about" role="tabpanel" aria-label="About LearnAiFast" hidden>
+      <div class="about-layout"><div class="about-copy"><div class="eyebrow">A SMALL IDEA WITH A BIG WHY</div><h1>AI shouldn’t feel<br>like a <span class="gradient-text">secret language.</span></h1><p>There’s a lot of noise around AI. LearnAiFast is here to make the useful parts easier to understand—and easier to try.</p><p>Whether you’re a student, a curious beginner, or just figuring out where to start, you deserve a friendly place to learn without the jargon.</p><button class="button button-primary" data-go="learn">Explore the guide <span>↗</span></button></div><article class="creator-card"><div class="creator-orbit" aria-hidden="true"><div class="creator-planet">I<span>✳</span></div><i></i><i></i><i></i></div><span class="creator-label">THE PERSON BEHIND THE PROJECT</span><h2>I am Ishwit,<br>and I made <span class="gradient-text">LearnAiFast.</span></h2><p>I built this to make AI simple, accessible, and easy to master for everyone. Less intimidating tutorials, more useful “oh, I get it” moments.</p><div class="creator-signoff">MADE WITH CURIOSITY <span>✳</span></div></article></div>
+      <div class="about-values"><div><span>01</span><strong>Keep it clear.</strong><p>Plain language over jargon.</p></div><div><span>02</span><strong>Stay curious.</strong><p>Try things, then think critically.</p></div><div><span>03</span><strong>Make it useful.</strong><p>Small skills, real-world wins.</p></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#home" data-view-link="home">Learn<span>Ai</span>Fast</a><span>AI, one clear idea at a time.</span><span>© 2026 LEARNAIFAST</span></footer>
+  <div class="creator-credit">Made by <strong>Ishwit</strong></div>
+  <div class="settings-area"><div class="settings-card" id="settings-card" hidden><div class="settings-card-head"><div><span class="eyebrow">MAKE IT YOURS</span><strong>Choose a theme</strong></div><button class="settings-close" id="settings-close" aria-label="Close theme settings">×</button></div><button class="theme-choice selected" data-theme-choice="midnight"><span class="theme-dots theme-midnight"><i></i><i></i><i></i></span><span>Midnight Cyber</span><b>✓</b></button><button class="theme-choice" data-theme-choice="daylight"><span class="theme-dots theme-daylight"><i></i><i></i><i></i></span><span>Clean Daylight</span><b>✓</b></button><button class="theme-choice" data-theme-choice="emerald"><span class="theme-dots theme-emerald"><i></i><i></i><i></i></span><span>Emerald Matrix</span><b>✓</b></button></div><button class="settings-toggle" id="settings-toggle" aria-label="Open theme settings" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Z" stroke="currentColor" stroke-width="1.7"/><path d="m19.1 13.7 1.1.8-1.4 2.5-1.3-.5a7.6 7.6 0 0 1-1.6.9l-.2 1.4h-2.9l-.3-1.4a7.4 7.4 0 0 1-1.6-.9l-1.3.5-1.4-2.5 1.1-.8a7 7 0 0 1 0-1.8l-1.1-.8 1.4-2.5 1.3.5a7.6 7.6 0 0 1 1.6-.9l.3-1.4h2.9l.2 1.4a7.4 7.4 0 0 1 1.6.9l1.3-.5 1.4 2.5-1.1.8a7 7 0 0 1 0 1.8Z" transform="translate(-1 -1)" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></button></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+(() => {
+  const views = [...document.querySelectorAll('.view')];
+  const navButtons = [...document.querySelectorAll('.nav-link')];
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2100);
+  }
+  function showView(name) {
+    const target = document.getElementById(`view-${name}`);
+    if (!target) return;
+    views.forEach(view => {
+      const isActive = view === target;
+      view.classList.toggle('active', isActive);
+      view.hidden = !isActive;
+    });
+    navButtons.forEach(button => {
+      const isActive = button.dataset.view === name;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-selected', String(isActive));
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (name === 'prompting') setTimeout(() => document.getElementById('checker').scrollIntoView({ behavior: 'smooth', block: 'start' }), 320);
+  }
+  document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => showView(button.dataset.view)));
+  document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => showView(button.dataset.go)));
+  document.querySelectorAll('[data-view-link]').forEach(link => link.addEventListener('click', event => {
+    event.preventDefault(); showView(link.dataset.viewLink);
+  }));
+
+  // Theme selection is local to this browser and does not require an account.
+  const themeChoices = [...document.querySelectorAll('[data-theme-choice]')];
+  function setTheme(theme) {
+    const safeTheme = ['midnight', 'daylight', 'emerald'].includes(theme) ? theme : 'midnight';
+    document.documentElement.dataset.theme = safeTheme === 'midnight' ? '' : safeTheme;
+    if (safeTheme === 'midnight') document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem('learnaifast-theme', safeTheme); } catch (_) { /* private mode can disable storage */ }
+    themeChoices.forEach(button => {
+      const selected = button.dataset.themeChoice === safeTheme;
+      button.classList.toggle('selected', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+  }
+  let savedTheme = 'midnight';
+  try { savedTheme = localStorage.getItem('learnaifast-theme') || 'midnight'; } catch (_) { /* use default */ }
+  setTheme(savedTheme);
+  themeChoices.forEach(button => button.addEventListener('click', () => setTheme(button.dataset.themeChoice)));
+  const settingsCard = document.getElementById('settings-card');
+  const settingsToggle = document.getElementById('settings-toggle');
+  function toggleSettings(open) {
+    settingsCard.hidden = !open;
+    settingsToggle.setAttribute('aria-expanded', String(open));
+  }
+  settingsToggle.addEventListener('click', () => toggleSettings(settingsCard.hidden));
+  document.getElementById('settings-close').addEventListener('click', () => toggleSettings(false));
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.settings-area')) toggleSettings(false);
+  });
+
+  async function copyText(text, success = 'Copied to clipboard') {
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast(success);
+    } catch (_) {
+      const helper = document.createElement('textarea'); helper.value = text; helper.style.position = 'fixed'; helper.style.opacity = '0';
+      document.body.appendChild(helper); helper.select();
+      try { document.execCommand('copy'); showToast(success); } catch (__) { showToast('Select and copy the text'); }
+      helper.remove();
+    }
+  }
+  document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', () => copyText(button.dataset.copy, 'Pro prompt copied')));
+
+  // Tool directory filters
+  const filterButtons = [...document.querySelectorAll('.filter-pill')];
+  const toolCards = [...document.querySelectorAll('.tool-card')];
+  const toolCount = document.getElementById('tool-count');
+  filterButtons.forEach(button => button.addEventListener('click', () => {
+    filterButtons.forEach(item => {
+      const selected = item === button;
+      item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected));
+    });
+    let visible = 0;
+    toolCards.forEach(card => {
+      const show = button.dataset.filter === 'all' || card.dataset.category === button.dataset.filter;
+      card.hidden = !show; if (show) visible++;
+    });
+    toolCount.textContent = `${String(visible).padStart(2, '0')} TOOL${visible === 1 ? '' : 'S'} TO EXPLORE`;
+  }));
+
+  const categorySelect = document.getElementById('category');
+  const promptInput = document.getElementById('prompt-input');
+  const countLabel = document.getElementById('live-count');
+  const samples = {
+    'Make an image': 'Create a photorealistic image of a small glass greenhouse in a rainy city garden at dusk. Show warm lights glowing inside, raindrops on the glass, and leafy plants in the foreground. Use a cinematic wide-angle view at eye level, soft moody lighting, muted teal and amber colours, and a 16:9 landscape composition.',
+    'Write code': 'Act as a patient senior JavaScript developer. Build a responsive study timer using vanilla HTML, CSS, and JavaScript. Let users enter a focus duration, start or pause the countdown, and reset it. Show minutes and seconds and play a gentle alert when it reaches zero. Handle empty or invalid durations, comment the key functions, and explain how to run the files.',
+    'Doubt / Question': 'I am a year 9 student and I understand that plants need sunlight, but I am confused about what chlorophyll does in photosynthesis. Explain the process step by step in simple language, use one everyday analogy, then give me a short example and ask one check-your-understanding question.',
+    'Make a video': 'Create a 10-second cinematic video of a paper airplane gliding across a quiet classroom and out through an open window into a sunlit courtyard. Track it with a smooth camera pan, then gently pull back to reveal the trees moving in the breeze. Use warm late-afternoon light, calm pacing, a hopeful mood, and a soft film-like visual style.',
+    'Write an essay or email': 'Write a friendly but persuasive 180-word email to my school science teacher asking permission to start a lunchtime gardening club. Mention that 12 students are interested, propose Wednesdays in the greenhouse, explain that we will share the jobs and keep the area tidy, and ask for a short meeting next week. Use a clear subject line and end with a polite sign-off.',
+    'Others': 'Act as an organised study coach. Help me plan for three exams next week: biology on Monday, history on Wednesday, and maths on Friday. I can study for one hour after school each weekday and prefer 25-minute focus blocks. Make a realistic day-by-day table with short breaks, include one review session per subject, and use bullet points for any extra advice.'
+  };
+  function wordCount(text) { return text.trim() ? text.trim().split(/\s+/).length : 0; }
+  function updateCount() { countLabel.innerHTML = `${wordCount(promptInput.value)} words <i>·</i> ${promptInput.value.length} characters`; }
+  promptInput.addEventListener('input', updateCount);
+  document.getElementById('load-example').addEventListener('click', () => {
+    promptInput.value = samples[categorySelect.value]; updateCount(); promptInput.focus(); showToast('Example prompt loaded');
+  });
+
+  const rubrics = {
+    'Make an image': [
+      ['A clearly described subject or scene', /\b(of|show|featuring|depict|portrait|landscape|scene|subject|with)\b/i],
+      ['An art style or medium', /\b(photorealistic|realistic|anime|illustration|watercolor|watercolour|3d render|oil painting|cinematic|pixel art|sketch|vector|film|editorial)\b/i],
+      ['Lighting, atmosphere, or mood', /\b(light|lighting|glow|sunset|dusk|bright|shadow|moody|mood|atmosphere|warm|soft|dramatic|fog|rain|golden hour)\b/i],
+      ['A camera angle, framing, or viewpoint', /\b(angle|close-up|close up|wide-angle|wide angle|overhead|eye level|bird.s-eye|viewpoint|perspective|shot|framing|composition|zoom)\b/i],
+      ['An aspect ratio or image dimensions', /\b(\d{1,2}\s*:\s*\d{1,2}|aspect ratio|square|portrait orientation|landscape orientation|resolution|\d{3,4}\s*[x×]\s*\d{3,4})\b/i]
+    ],
+    'Write code': [
+      ['The programming language or framework', /\b(javascript|typescript|python|java|html|css|react|vue|node|sql|c\+\+|c#|swift|go|rust|framework|vanilla)\b/i],
+      ['A clear feature or outcome', /\b(build|create|write|make|implement|fix|debug|develop|function|app|website|tool|script|program|component)\b/i],
+      ['Expected inputs and outputs', /\b(input|output|return|display|show|receive|accept|user|result|form|response|enter|provide)\b/i],
+      ['Edge cases or error handling', /\b(edge case|invalid|empty|null|error|handle|validate|boundary|failure|missing|exception|fallback)\b/i],
+      ['Clean, commented code or an explanation', /\b(comment|document|clean|readable|explain|explanation|maintainable|best practice|how to run|instructions)\b/i]
+    ],
+    'Doubt / Question': [
+      ['Helpful context or what you already understand', /\b(i am|i'm|my|we|class|student|year \d|grade \d|understand|know|learning|studying|confused|struggling|context|currently)\b/i],
+      ['A focused, specific question', /\?|\b(why|how|what|when|which|difference|explain|question)\b/i],
+      ['Your level or a preferred explanation style', /\b(explain like|year \d|grade \d|beginner|simple language|plain english|step by step|step-by-step|analogy|like i'm|like i.m)\b/i],
+      ['A request for examples or a worked-through explanation', /\b(example|for instance|analogy|demonstrate|show me|worked|illustrate|compare|break down)\b/i],
+      ['A useful structure or way to check understanding', /\b(steps|bullet|list|summary|quiz|check.*understanding|practice|key points|recap|then|finally)\b/i]
+    ],
+    'Make a video': [
+      ['What happens in the scene', /\b(walk|run|move|glide|fly|pan|action|scene|follow|show|reveal|travel|turn|open|close|pour|dance|drive|fall|rise)\b/i],
+      ['Camera movement or shot type', /\b(camera|pan|zoom|tracking|track|dolly|drone|tilt|wide shot|close-up|close up|pull back|push in|orbit|angle)\b/i],
+      ['A visual style or medium', /\b(cinematic|animation|animated|documentary|film|realistic|anime|stop-motion|stop motion|hand-drawn|hand drawn|visual style|film-like|film like|3d)\b/i],
+      ['Pacing or a duration', /\b(\d+\s*(seconds?|minutes?)|duration|slow|fast|gradual|pacing|beat|sequence|quickly|gently)\b/i],
+      ['Lighting or a mood', /\b(mood|lighting|light|sunset|dusk|warm|bright|dark|soft|dramatic|calm|hopeful|tense|fog|golden hour)\b/i]
+    ],
+    'Write an essay or email': [
+      ['The intended reader or recipient', /\b(to my|dear|audience|reader|teacher|manager|client|friend|parent|customer|recipient|for a|for my|students|colleague)\b/i],
+      ['The tone you want', /\b(tone|formal|friendly|persuasive|professional|warm|polite|confident|casual|empathetic|convincing)\b/i],
+      ['Key details or points to include', /\b(include|mention|cover|key points|because|reason|detail|point|about|explain|discuss|highlight)\b/i],
+      ['A structure or format', /\b(subject line|paragraph|bullet|structure|introduction|conclusion|sign-off|format|sections|outline|greeting)\b/i],
+      ['A target word count or length', /\b(\d+\s*words?|word count|short|concise|one page|paragraphs?|length|\d+\s*paragraphs?)\b/i]
+    ],
+    'Others': [
+      ['A role for the AI to take on', /\b(act as|you are|role|persona|coach|expert|tutor|assistant|specialist|advisor)\b/i],
+      ['A specific action or task verb', /\b(create|write|plan|compare|summarize|summarise|organize|organise|analyze|analyse|recommend|draft|list|design|explain|translate|help)\b/i],
+      ['Useful background or context', /\b(i am|i'm|my|for|because|context|background|need|goal|students|work|class|exam|project|next week|audience)\b/i],
+      ['Constraints, preferences, or requirements', /\b(under|limit|must|should|prefer|only|include|avoid|budget|minutes|hours|each|specific|constraint|rule)\b/i],
+      ['The format you want the answer in', /\b(table|bullet|numbered|steps|format|checklist|outline|paragraph|columns|schedule|template)\b/i]
+    ]
+  };
+  const categoryHow = {
+    'Make an image': 'Consider adding an art style, a lighting or mood direction, the camera framing, and an aspect ratio.',
+    'Write code': 'Name the language, specify the feature and expected input/output, mention edge cases, and request readable commented code.',
+    'Doubt / Question': 'Add what you already know, make the question precise, and tell the AI your level and whether you want steps or examples.',
+    'Make a video': 'Describe the action over time, camera movement, visual style, clip duration or pacing, and the mood or light.',
+    'Write an essay or email': 'Specify your recipient, tone, key points, structure, and approximate word count.',
+    'Others': 'Assign a useful role, state the action clearly, add context and constraints, and choose the output format.'
+  };
+  function buildEnhanced(category, raw) {
+    const base = raw.trim().replace(/[.!?]+$/, '');
+    const starters = {
+      'Make an image': `Create an image of ${base || '[describe your subject and setting]'}. Include specific subject details and background elements. Use [art style or medium] with [lighting, colour palette, and mood]. Frame it as [camera angle or composition]. Use a [aspect ratio] aspect ratio.`,
+      'Write code': `Act as a thoughtful software developer. Build ${base || '[describe the feature or program]'}. Use [language or framework]. The goal is [specific behavior]; accept [inputs] and produce [outputs]. Handle [edge cases or errors]. Write clean, commented code and include a brief explanation and run instructions.`,
+      'Doubt / Question': `I am [your level or background], and I currently understand [what you know]. My question is: ${base || '[ask one clear, focused question]'}? Explain it in [plain language / your level] using step-by-step reasoning and a concrete example. Finish with a short summary and one question to check my understanding.`,
+      'Make a video': `Create a [duration]-second video showing ${base || '[describe the main action and subject]'}. The action develops from [starting moment] to [ending moment]. Use [camera movement or shot] and a [visual style]. Set the mood with [lighting, colour, and atmosphere], and keep the pacing [slow / energetic / cinematic].`,
+      'Write an essay or email': `Write a [word count]-word [essay or email] for [audience or recipient] with a [tone] tone. Focus on ${base || '[state the topic and purpose]'}. Include [key points or facts] and organise it with [requested structure]. End with [desired closing or takeaway].`,
+      'Others': `Act as a [useful role]. Help me ${base || '[state the action or task clearly]'}. Context: [include relevant background and goal]. Follow these constraints: [rules, preferences, or length]. Present the result as [table, bullets, steps, or another format].`
+    };
+    return starters[category];
+  }
+  function addListItem(list, text) {
+    const item = document.createElement('li'); item.textContent = text; list.appendChild(item);
+  }
+  function scorePrompt(text, category) {
+    const clean = text.trim();
+    const lower = clean.toLowerCase();
+    const words = wordCount(clean);
+    const strengths = [];
+    const improvements = [];
+    let universal = 0;
+    const specifics = /\b\d+\b|\b(for|with|using|because|include|such as|like|between|under|over)\b/i.test(clean);
+    const hasAction = /\b(create|write|explain|make|build|design|summarize|summarise|plan|compare|analyze|analyse|generate|draft|translate|help|describe|debug|implement|show)\b/i.test(clean);
+    const enough = words >= 12;
+    if (specifics) { universal += 1; strengths.push('You included concrete details or a useful constraint.'); }
+    else improvements.push('Add a concrete detail, example, number, or requirement so the AI has something specific to work with.');
+    if (hasAction) { universal += 1; strengths.push('Your prompt gives the AI a clear action to take.'); }
+    else improvements.push('Start with a direct action verb such as “create,” “explain,” “compare,” or “draft.”');
+    if (enough) { universal += 1; strengths.push(`There’s enough detail to work with (${words} words).`); }
+    else if (words < 5) improvements.push('This is very short and vague. Add context and detail—prompts with only 1–4 words are heavily penalized.');
+    else improvements.push('Add a little more context (aim for at least 12 useful words) to reduce guesswork.');
+
+    const rubric = rubrics[category];
+    let matches = 0;
+    rubric.forEach(([label, pattern]) => {
+      if (pattern.test(lower)) { matches++; strengths.push(`${label} is covered.`); }
+      else improvements.push(`Add ${label.toLowerCase()}.`);
+    });
+    let rawScore = universal + matches * 1.4;
+    if (words <= 4) rawScore = Math.min(rawScore, 3.9);
+    else if (words < 8) rawScore = Math.min(rawScore, 5.4);
+    const score = Math.max(1, Math.min(10, Math.round(rawScore * 10) / 10));
+    if (!clean) return { score: 0, strengths: [], improvements: ['Write a prompt first, or load a sample, then check it to get feedback.'], summary: 'Your feedback will appear here once you add a prompt.' };
+    const summary = score >= 8 ? 'Strong direction. A couple of extra specifics could make this even more reliable.' : score >= 5 ? 'You’ve got a useful starting point. A few targeted details can make the result much sharper.' : 'The idea is there, but the AI would need to guess quite a bit. Let’s give it clearer direction.';
+    if (!improvements.length) improvements.push('You’ve covered the main ingredients. Double-check any facts in the AI’s response.');
+    return { score, strengths, improvements, summary };
+  }
+  document.getElementById('check-prompt').addEventListener('click', () => {
+    const category = categorySelect.value;
+    const result = scorePrompt(promptInput.value, category);
+    const placeholder = document.getElementById('result-placeholder');
+    const content = document.getElementById('result-content');
+    placeholder.hidden = true; content.hidden = false;
+    const color = result.score >= 8 ? 'var(--success)' : result.score >= 5 ? 'var(--warm)' : 'var(--danger)';
+    document.getElementById('score-number').textContent = result.score ? result.score.toFixed(1) : '—';
+    document.getElementById('ring-score').textContent = result.score || '—';
+    document.getElementById('score-summary').textContent = result.summary;
+    const ring = document.getElementById('score-ring');
+    ring.style.setProperty('--meter', `${result.score * 10}%`); ring.style.setProperty('--meter-color', color);
+    document.querySelector('.score-summary').style.setProperty('--meter-color', color);
+    const strengthList = document.getElementById('strength-list'); strengthList.replaceChildren();
+    if (result.strengths.length) result.strengths.forEach(item => addListItem(strengthList, item));
+    else addListItem(strengthList, 'A blank canvas is a start—add your goal and audience.');
+    const improveList = document.getElementById('improve-list'); improveList.replaceChildren();
+    result.improvements.slice(0, 4).forEach(item => addListItem(improveList, item));
+    document.getElementById('enhanced-prompt').textContent = buildEnhanced(category, promptInput.value);
+    if (!promptInput.value.trim()) showToast('Add a prompt or load an example first');
+  });
+  document.getElementById('copy-enhanced').addEventListener('click', () => copyText(document.getElementById('enhanced-prompt').textContent, 'Enhanced prompt copied'));
+})();
+
+  </script>
+
+</body>
+</html>
